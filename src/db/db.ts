@@ -10,7 +10,7 @@ const client = new Client({
 	user: env.POSTGRES_USER,
 	password: env.POSTGRES_PASSWORD,
 	ssl: {
-		rejectUnauthorized: true,
+		rejectUnauthorized: false,
 	},
 })
 

@@ -9,6 +9,9 @@ const client = new Client({
 	port: 5432,
 	user: env.POSTGRES_USER,
 	password: env.POSTGRES_PASSWORD,
+	ssl: {
+		rejectUnauthorized: true,
+	},
 })
 
 await client.connect()

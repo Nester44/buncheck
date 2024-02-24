@@ -43,4 +43,9 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
             docker stop bunchek
             docker rm bunchek
-            docker run --detach --name buncheck -p 80:3000 ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
+            export POSTGRES_DB=${{ secrets.POSTGRES_DB }}
+            export POSTGRES_USER=${{ secrets.POSTGRES_USER }}
+            export POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+            export POSTGRES_HOST=${{ secrets.POSTGRES_HOST }}
+            export PORT=${{ secrets.PORT }}
+            docker run --detach --name buncheck -p 80:$PORT -e POSTGRES_DB=$POSTGRES_DB -e POSTGRES_USER=$POSTGRES_USER -e POSTGRES_PASSWORD=$POSTGRES_PASSWORD -e POSTGRES_HOST=$POSTGRES_HOST -e PORT=$PORT ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest

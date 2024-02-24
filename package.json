@@ -1,0 +1,30 @@
+{
+  "name": "bun",
+  "module": "index.ts",
+  "scripts": {
+    "generate": "drizzle-kit generate:pg",
+    "start": "bun dist/index.js",
+    "dev": "bun --watch src/index.ts",
+    "build": "bun build --target=bun src/index.ts --outdir ./dist"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.0",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "bun-types": "latest",
+    "drizzle-kit": "^0.20.14",
+    "eslint": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "@hono/zod-validator": "^0.1.11",
+    "drizzle-orm": "^0.29.4",
+    "drizzle-zod": "^0.5.1",
+    "hono": "^4.0.6",
+    "pg": "^8.11.3",
+    "zod": "^3.22.4"
+  }
+}
